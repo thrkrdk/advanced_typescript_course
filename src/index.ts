@@ -6,4 +6,4 @@ user.on('change', () => {});
 user.on('change', () => {});
 user.on('laskjdf', () => {});
 
-console.log(user);
+console.log(user); // console'u kontrol ett

@@ -1,4 +1,6 @@
-import axios from "axios"
+import { User } from './models/User';
 
-axios.get("/api/users/1").then(res=> console.log(res.data));
- 
+const user = new User({ name: 'myname', age: 20 });
+
+console.log(user.get('name'));
+console.log(user.get('age'));

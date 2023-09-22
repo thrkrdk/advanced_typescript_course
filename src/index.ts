@@ -1,20 +1,3 @@
-import { User } from './models/User';
+import axios from 'axios';
 
-const user = new User({ name: 'myname', age: 20 });
-
-user.on('change', () => {
-  console.log('Change #1');
-});
-user.on('change', () => {
-  console.log('Change #2');
-});
-user.on('save', () => {
-  console.log('Save was triggered');
-});
-
-user.trigger('alskdjfalskjfdlksjdf'); // logu kontrol et çalışmayacak
-
-/*
-user.trigger('save');  
-user.trigger('Change'); sonra bunları aç
-*/
+axios.get('/api/users/1').then(res=> console.log(res.data));

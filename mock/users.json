@@ -1,6 +1,7 @@
 [
     {
-        "id": 1,
-        "name": "Ali"
-    }
+        "name": "Ali Demirçınar",
+        "age": 20,
+        "id": 1
+      }
 ]

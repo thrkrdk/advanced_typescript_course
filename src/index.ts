@@ -1,3 +1,9 @@
-import axios from 'axios';
+import { User } from './models/User';
 
-axios.get('/api/users/1').then(res=> console.log(res.data));
+const user = new User({ id: 1 });
+
+user.fetch();
+
+setTimeout(() => {
+  console.log(user);
+}, 5000);  // restcall gibi davrandırıyoruz

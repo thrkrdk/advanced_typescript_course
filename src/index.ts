@@ -1,9 +1,6 @@
 import { User } from './models/User';
 
-const user = new User({ id: 1 });
+const user = new User({ name: 'new record', age: 0 });
 
-user.fetch();
-
-setTimeout(() => {
-  console.log(user);
-}, 5000);  // restcall gibi davrandırıyoruz
+user.save();  // network kısına bak
+// /mock altındaki user.jsonun içine bak

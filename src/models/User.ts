@@ -46,4 +46,14 @@ export class User {
         this.set(response.data);
       });
   }
+
+  save(): void {
+    const id = this.get('id');
+
+    if (id) {
+      axios.put(`/api/users/${id}`, this.data);
+    } else {
+      axios.post('/api/users', this.data);
+    }
+  }
 }

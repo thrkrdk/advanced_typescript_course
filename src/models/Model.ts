@@ -16,7 +16,7 @@ interface Events {
   trigger(eventName: string): void;
 }
 
-interface HasId {
+export interface HasId {
   id?: number;
 }
 
@@ -43,21 +43,17 @@ export class Model<T extends HasId> {
       throw new Error('Cannot fetch without an id');
     }
 
-    this.sync.fetch(id).then(
-      (response: AxiosResponse): void => {
-        this.set(response.data);
-      }
-    );
+    this.sync.fetch(id).then((response: AxiosResponse): void => {
+      this.set(response.data);
+    });
   }
 
   save(): void {
     this.sync
       .save(this.attributes.getAll())
-      .then(
-        (response: AxiosResponse): void => {
-          this.trigger('save');
-        }
-      )
+      .then((response: AxiosResponse): void => {
+        this.trigger('save');
+      })
       .catch(() => {
         this.trigger('error');
       });

@@ -5,4 +5,4 @@ const user = User.buildUser({ name: 'NAME', age: 20 });
 
 const userForm = new UserForm(document.getElementById('root'), user);
 
-userForm.render();
+userForm.render(); // button click çalışmayacak çünkü daha implement etmedik

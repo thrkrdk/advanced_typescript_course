@@ -1,11 +1,13 @@
-import { User } from './models/User';
+import { User, UserProps } from './models/User';
+import { Collection } from './models/Collection';
 
-const user = new User({id:1, name: 'new record', age: 0 }); // uygulama hata verecek bir sonraki bölümde güncelleyeceğiz
+const collection = new Collection<User, UserProps>(
+  '/api/users',
+  (json: UserProps) => User.buildUser(json)
+);
 
-console.log(user.get('name'));
-
-user.on('change', () => {
-  console.log('User was changed, we probably need to update some HTML');
+collection.on('change', () => {
+  console.log(collection);
 });
 
-user.set({ name: 'New name' });
+collection.fetch();

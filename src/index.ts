@@ -1,6 +1,6 @@
 import { User } from './models/User';
 
-const user = new User({ id: 1, name: 'newer name', age: 0 });
+const user = new User({ id: 1, name: 'newer name', age: 0 }); // uygulama çalışınca json dosyasını kotrol et
 
 user.on('save', () => {
   console.log(user);

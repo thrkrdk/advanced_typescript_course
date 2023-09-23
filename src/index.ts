@@ -1,9 +1,11 @@
 import { User } from './models/User';
 
-const user = new User({ id: 1, name: 'newer name', age: 0 }); // uygulama çalışınca json dosyasını kotrol et
+const user = new User({id:1, name: 'new record', age: 0 });
 
-user.on('save', () => {
-  console.log(user);
+console.log(user.get('name'));
+
+user.on('change', () => {
+  console.log('User was changed, we probably need to update some HTML');
 });
 
-user.save();
+user.set({ name: 'New name' });
